@@ -11,7 +11,7 @@ https://nginx.org/en/docs/
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
 https://portswigger.net/web-security/cors
 
-*** Three projects
+** Three projects
 Let's create 3 simple Ruby on Rails projects: primary, secondary and apiary.
 Then let's configure Nginx, so that the are accessed in the following way.
 
@@ -20,3 +20,6 @@ Then let's configure Nginx, so that the are accessed in the following way.
 | primary   | 5050 | /          |
 | secondary | 5010 | /secondary |
 | apiary    | 5010 | /apiary    |
+
+
+** Creating Projects
