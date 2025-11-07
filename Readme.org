@@ -101,5 +101,8 @@ https://localhost
 https://localhost:5010/secondary
 https://localhost:5010/apiary
 
-We have incorrect server config and problems with routes
-file:sites-available/corsed_project
+The services on port 5010 will be accessible with their respective
+prefixes, like apiary, but rails routes will no see them.
+
+For example https://localhost:5010/apiary/foo will be seen by rails as
+http://127.0.0.1:3002/foo
