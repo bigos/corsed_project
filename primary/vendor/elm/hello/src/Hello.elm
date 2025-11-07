@@ -11,7 +11,7 @@ import Html exposing (..)
 import Html.Attributes exposing (style)
 import Html.Events exposing (..)
 import Http
-import Json.Decode exposing (Decoder, field, int, map4, string)
+import Json.Decode exposing (Decoder, field, int, map, string)
 
 
 
@@ -38,10 +38,7 @@ type Model
 
 
 type alias Quote =
-    { quote : String
-    , source : String
-    , author : String
-    , year : Int
+    { hello : String
     }
 
 
@@ -110,11 +107,10 @@ viewQuote model =
         Success quote ->
             div []
                 [ button [ onClick MorePlease, style "display" "block" ] [ text "More Please!" ]
-                , blockquote [] [ text quote.quote ]
-                , p [ style "text-align" "right" ]
+                , blockquote [] [ text (Debug.toString quote) ]
+                , p []
                     [ text "— "
-                    , cite [] [ text quote.source ]
-                    , text (" by " ++ quote.author ++ " (" ++ String.fromInt quote.year ++ ")")
+                    , cite [] [ text (Debug.toString quote) ]
                     ]
                 ]
 
@@ -126,15 +122,12 @@ viewQuote model =
 getRandomQuote : Cmd Msg
 getRandomQuote =
     Http.get
-        { url = "https://elm-lang.org/api/random-quotes"
+        { url = "https://localhost:5010/apiary/api/v1/hello"
         , expect = Http.expectJson GotQuote quoteDecoder
         }
 
 
 quoteDecoder : Decoder Quote
 quoteDecoder =
-    map4 Quote
-        (field "quote" string)
-        (field "source" string)
-        (field "author" string)
-        (field "year" int)
+    Json.Decode.map Quote
+        (field "hello" string)

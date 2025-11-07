@@ -6129,25 +6129,19 @@ var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
 		{body: $elm$http$Http$emptyBody, expect: r.expect, headers: _List_Nil, method: 'GET', timeout: $elm$core$Maybe$Nothing, tracker: $elm$core$Maybe$Nothing, url: r.url});
 };
-var $author$project$Hello$Quote = F4(
-	function (quote, source, author, year) {
-		return {author: author, quote: quote, source: source, year: year};
-	});
+var $author$project$Hello$Quote = function (hello) {
+	return {hello: hello};
+};
 var $elm$json$Json$Decode$field = _Json_decodeField;
-var $elm$json$Json$Decode$int = _Json_decodeInt;
-var $elm$json$Json$Decode$map4 = _Json_map4;
 var $elm$json$Json$Decode$string = _Json_decodeString;
-var $author$project$Hello$quoteDecoder = A5(
-	$elm$json$Json$Decode$map4,
+var $author$project$Hello$quoteDecoder = A2(
+	$elm$json$Json$Decode$map,
 	$author$project$Hello$Quote,
-	A2($elm$json$Json$Decode$field, 'quote', $elm$json$Json$Decode$string),
-	A2($elm$json$Json$Decode$field, 'source', $elm$json$Json$Decode$string),
-	A2($elm$json$Json$Decode$field, 'author', $elm$json$Json$Decode$string),
-	A2($elm$json$Json$Decode$field, 'year', $elm$json$Json$Decode$int));
+	A2($elm$json$Json$Decode$field, 'hello', $elm$json$Json$Decode$string));
 var $author$project$Hello$getRandomQuote = $elm$http$Http$get(
 	{
 		expect: A2($elm$http$Http$expectJson, $author$project$Hello$GotQuote, $author$project$Hello$quoteDecoder),
-		url: 'https://elm-lang.org/api/random-quotes'
+		url: 'https://localhost:5010/apiary/api/v1/hello'
 	});
 var $author$project$Hello$init = function (_v0) {
 	return _Utils_Tuple2($author$project$Hello$Loading, $author$project$Hello$getRandomQuote);
@@ -6207,6 +6201,7 @@ var $elm$html$Html$Events$onClick = function (msg) {
 var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
 var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
+var $elm$core$Debug$toString = _Debug_toString;
 var $author$project$Hello$viewQuote = function (model) {
 	switch (model.$) {
 		case 'Failure':
@@ -6252,14 +6247,12 @@ var $author$project$Hello$viewQuote = function (model) {
 						_List_Nil,
 						_List_fromArray(
 							[
-								$elm$html$Html$text(quote.quote)
+								$elm$html$Html$text(
+								$elm$core$Debug$toString(quote))
 							])),
 						A2(
 						$elm$html$Html$p,
-						_List_fromArray(
-							[
-								A2($elm$html$Html$Attributes$style, 'text-align', 'right')
-							]),
+						_List_Nil,
 						_List_fromArray(
 							[
 								$elm$html$Html$text('— '),
@@ -6268,10 +6261,9 @@ var $author$project$Hello$viewQuote = function (model) {
 								_List_Nil,
 								_List_fromArray(
 									[
-										$elm$html$Html$text(quote.source)
-									])),
-								$elm$html$Html$text(
-								' by ' + (quote.author + (' (' + ($elm$core$String$fromInt(quote.year) + ')'))))
+										$elm$html$Html$text(
+										$elm$core$Debug$toString(quote))
+									]))
 							]))
 					]));
 	}
