@@ -1,6 +1,6 @@
 * Readme
 
-CORS is driving me mad.
+CORS problem demonstration.
 
 ** Documentation
 
