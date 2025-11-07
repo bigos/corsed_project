@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    namespace :v1 do
+      resource "hello", only: [:show]
+    end
+  end
+
   resources :apiary_names
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

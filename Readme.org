@@ -116,4 +116,18 @@ On primary service
 http://localhost:3000
 create a JavaScript that uses an api service on the apiary
 
-https://localhost:5010/apiary/api/hello
+https://localhost:5010/apiary/api/v1/hello
+
+*** API routes and controllers
+file:apiary/config/routes.rb
+
+will give the route:
+#+begin_example
+api_v1_hello GET    /api/v1/hello(.:format)   api/v1/hellos#show
+#+end_example
+
+file:apiary/app/controllers/api/v1/hellos_controller.rb
+
+*** Elm widget
+Now we need a simple Elm widget that will talk to the API to greet us with
+current time.
