@@ -1,11 +1,5 @@
 module Hello exposing (..)
 
--- Press a button to send a GET request for random quotes.
---
--- Read how it works:
---   https://guide.elm-lang.org/effects/json.html
---
-
 import Browser
 import Html exposing (..)
 import Html.Attributes exposing (style)
@@ -87,7 +81,7 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
     div []
-        [ h2 [] [ text "Random Quotes" ]
+        [ h2 [] [ text "Hellos" ]
         , viewQuote model
         ]
 
@@ -97,7 +91,7 @@ viewQuote model =
     case model of
         Failure ->
             div []
-                [ text "I could not load a random quote for some reason. "
+                [ text "I could not load  the hello for some reason. "
                 , button [ onClick MorePlease ] [ text "Try Again!" ]
                 ]
 
