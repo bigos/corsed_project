@@ -78,6 +78,11 @@ sudo nginx -s reload
 *** Modifying and running the Rails projects
 Following the guides https://guides.rubyonrails.org/
 
+**** generated 3 folders with rails projects
+I used gemset
+file:.rbenv-gemsets
+and installed the gems
+
 **** generated 3 scaffolds
 Then, ran the migrations and fixed routes.
 [[file:primary/config/routes.rb::root]]
@@ -97,3 +102,4 @@ https://localhost:5010/secondary
 https://localhost:5010/apiary
 
 We have incorrect server config and problems with routes
+file:sites-available/corsed_project
