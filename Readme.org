@@ -17,12 +17,14 @@ Then let's configure Nginx, so that the are accessed in the following way.
 
 | server    | port | location   |
 |-----------+------+------------|
-| primary   | 5050 | /          |
+| primary   |  443 | /          |
 | secondary | 5010 | /secondary |
 | apiary    | 5010 | /apiary    |
 
 
 ** Creating Projects
+
+*** Creating Rails projects
 Now we have 3 folders for the projects.
 
 After creating gemset for the project and installing rails gem, I will create 3
@@ -33,3 +35,94 @@ projects.
   rails new ./secondary
   rails new ./apiary
 #+end_example
+
+*** Nginx
+
+**** installations
+On Ubuntu like sytem, Install it with:
+#+begin_example
+sudo apt install nginx
+#+end_example
+
+**** configuration
+Go to folder: ~/etc/nginx/sites-enabled~
+and remove the default configuration and create file for the new one.
+
+#+begin_example
+sudo rm -v ./default
+sudo touch corsed_project
+#+end_example
+
+Then use the editor to make the file look like this:
+
+#+begin_example
+# primary
+server {
+    listen 443 default_server ssl;
+    server_name _;
+
+    # self signed
+    include snippets/snakeoil.conf;
+
+  location / {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-NginX-Proxy true;
+      proxy_set_header X-Forwarded-Proto $scheme;
+
+      proxy_pass http://127.0.0.1:3000;
+      proxy_redirect off;
+      proxy_http_version 1.1;
+  }
+}
+
+# secondary and apiary
+server {
+    listen 5010 default_server ssl;
+    server_name _;
+
+    # self signed
+    include snippets/snakeoil.conf;
+
+  location /secondary {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-NginX-Proxy true;
+      proxy_set_header X-Forwarded-Proto $scheme;
+
+      proxy_pass http://127.0.0.1:3001;
+      proxy_redirect off;
+      proxy_http_version 1.1;
+  }
+
+  location /apiary {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-NginX-Proxy true;
+      proxy_set_header X-Forwarded-Proto $scheme;
+
+      proxy_pass http://127.0.0.1:3002;
+      proxy_redirect off;
+      proxy_http_version 1.1;
+  }
+}
+#+end_example
+
+**** test configuration
+
+#+begin_example
+$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+#+end_example
+
+**** run it
+#+begin_example
+sudo nginx
+sudo nginx -s reload
+#+end_example
+
+*** Modifying and running the Rails projects
