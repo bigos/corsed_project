@@ -23,3 +23,13 @@ Then let's configure Nginx, so that the are accessed in the following way.
 
 
 ** Creating Projects
+Now we have 3 folders for the projects.
+
+After creating gemset for the project and installing rails gem, I will create 3
+projects.
+
+#+begin_example
+  rails new ./primary
+  rails new ./secondary
+  rails new ./apiary
+#+end_example
