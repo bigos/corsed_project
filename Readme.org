@@ -113,7 +113,7 @@ http://127.0.0.1:3002/foo
 
 *** The goal
 On primary service
-http://localhost:3000
+http://localhost:3000 or https://localhost
 create a JavaScript that uses an api service on the apiary
 
 https://localhost:5010/apiary/api/v1/hello
@@ -131,3 +131,8 @@ file:apiary/app/controllers/api/v1/hellos_controller.rb
 *** Elm widget
 Now we need a simple Elm widget that will talk to the API to greet us with
 current time.
+
+Now we have the beginning of a project, and the script that will compile our simple example
+file:primary/vendor/elm/hello/compile_widget.sh
+
+Now let's show that widget somewhere
