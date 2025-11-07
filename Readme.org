@@ -15,15 +15,13 @@ https://portswigger.net/web-security/cors
 Let's create 3 simple Ruby on Rails projects: primary, secondary and apiary.
 Then let's configure Nginx, so that the are accessed in the following way.
 
-| server    | port | location   |
-|-----------+------+------------|
-| primary   |  443 | /          |
-| secondary | 5010 | /secondary |
-| apiary    | 5010 | /apiary    |
-
+| server    | port | location   | note       |
+|-----------+------+------------+------------|
+| primary   |  443 | /          |            |
+| secondary | 5010 | /secondary | irrelevant |
+| apiary    | 5010 | /apiary    |            |
 
 ** Creating Projects
-
 *** Creating Rails projects
 Now we have 3 folders for the projects.
 
@@ -92,13 +90,17 @@ Then, ran the migrations and fixed routes.
 Now I have 3 projects to start experimenting
 
 http://localhost:3000
-http://localhost:3001
+
+http://localhost:3001 irrelevant
+
 http://localhost:3002
 
 Trying to access them via HTTPS
 
 https://localhost
-https://localhost:5010/secondary
+
+https://localhost:5010/secondary irrelevant
+
 https://localhost:5010/apiary
 
 The services on port 5010 will be accessible with their respective
@@ -106,3 +108,12 @@ prefixes, like apiary, but rails routes will no see them.
 
 For example https://localhost:5010/apiary/foo will be seen by rails as
 http://127.0.0.1:3002/foo
+
+** Replicating the problem
+
+*** The goal
+On primary service
+http://localhost:3000
+create a JavaScript that uses an api service on the apiary
+
+https://localhost:5010/apiary/api/hello
