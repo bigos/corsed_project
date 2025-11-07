@@ -1,0 +1,2 @@
+class ApiaryName < ApplicationRecord
+end

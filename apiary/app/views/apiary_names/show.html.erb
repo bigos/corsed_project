@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @apiary_name %>
+
+<div>
+  <%= link_to "Edit this apiary name", edit_apiary_name_path(@apiary_name) %> |
+  <%= link_to "Back to apiary names", apiary_names_path %>
+
+  <%= button_to "Destroy this apiary name", @apiary_name, method: :delete %>
+</div>

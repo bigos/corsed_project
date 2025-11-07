@@ -126,3 +126,4 @@ sudo nginx -s reload
 #+end_example
 
 *** Modifying and running the Rails projects
+Following the guides https://guides.rubyonrails.org/

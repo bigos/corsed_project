@@ -1,0 +1,12 @@
+<% content_for :title, "Editing apiary name" %>
+
+<h1>Editing apiary name</h1>
+
+<%= render "form", apiary_name: @apiary_name %>
+
+<br>
+
+<div>
+  <%= link_to "Show this apiary name", @apiary_name %> |
+  <%= link_to "Back to apiary names", apiary_names_path %>
+</div>
