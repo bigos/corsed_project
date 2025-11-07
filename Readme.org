@@ -181,3 +181,7 @@ Many correct origins may work, but I did not test it with the secondary app
 #+begin_example
 origins 'https://localhost', 'http://localhost:3000',  'http://localhost:3001'
 #+end_example
+
+** Question
+So is it a matter of finding the attempted origins in the browser and adding the
+to the list with the correct syntax?
