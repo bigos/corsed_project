@@ -1,0 +1,12 @@
+<% content_for :title, "Editing primary name" %>
+
+<h1>Editing primary name</h1>
+
+<%= render "form", primary_name: @primary_name %>
+
+<br>
+
+<div>
+  <%= link_to "Show this primary name", @primary_name %> |
+  <%= link_to "Back to primary names", primary_names_path %>
+</div>

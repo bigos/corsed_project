@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Primary names" %>
+
+<h1>Primary names</h1>
+
+<div id="primary_names">
+  <% @primary_names.each do |primary_name| %>
+    <%= render primary_name %>
+    <p>
+      <%= link_to "Show this primary name", primary_name %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New primary name", new_primary_name_path %>

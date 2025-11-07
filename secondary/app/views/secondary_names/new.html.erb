@@ -1,0 +1,11 @@
+<% content_for :title, "New secondary name" %>
+
+<h1>New secondary name</h1>
+
+<%= render "form", secondary_name: @secondary_name %>
+
+<br>
+
+<div>
+  <%= link_to "Back to secondary names", secondary_names_path %>
+</div>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @secondary_name %>
+
+<div>
+  <%= link_to "Edit this secondary name", edit_secondary_name_path(@secondary_name) %> |
+  <%= link_to "Back to secondary names", secondary_names_path %>
+
+  <%= button_to "Destroy this secondary name", @secondary_name, method: :delete %>
+</div>

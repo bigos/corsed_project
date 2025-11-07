@@ -1,0 +1,2 @@
+class PrimaryName < ApplicationRecord
+end

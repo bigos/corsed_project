@@ -1,0 +1,2 @@
+class SecondaryName < ApplicationRecord
+end
