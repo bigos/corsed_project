@@ -169,3 +169,9 @@ is not one string separated by commas
 #+begin_example
 origins 'https://localhost', 'http://localhost:3000'
 #+end_example
+
+When I comment out one of the origins
+#+begin_example
+    origins 'https://localhost' #, 'http://localhost:3000'
+#+end_example
+then http://localhost:3000 no longer works
