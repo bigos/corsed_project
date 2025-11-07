@@ -110,7 +110,6 @@ For example https://localhost:5010/apiary/foo will be seen by rails as
 http://127.0.0.1:3002/foo
 
 ** Replicating the problem
-
 *** The goal
 On primary service
 http://localhost:3000 or https://localhost
@@ -118,7 +117,7 @@ create a JavaScript that uses an api service on the apiary
 
 https://localhost:5010/apiary/api/v1/hello
 
-*** API routes and controllers
+**** API routes and controllers
 file:apiary/config/routes.rb
 
 will give the route:
@@ -128,7 +127,7 @@ api_v1_hello GET    /api/v1/hello(.:format)   api/v1/hellos#show
 
 file:apiary/app/controllers/api/v1/hellos_controller.rb
 
-*** Elm widget
+**** Elm widget
 Now we need a simple Elm widget that will talk to the API to greet us with
 current time.
 
@@ -136,3 +135,10 @@ Now we have the beginning of a project, and the script that will compile our sim
 file:primary/vendor/elm/hello/compile_widget.sh
 
 Now let's show that widget somewhere
+file:primary/app/views/primary_names/index.html.erb
+
+*** CORS errors
+At this point I can not load the hello with error on the primary app in the browser's JS console.
+#+begin_example
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://localhost:5010/apiary/api/v1/hello. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 200.
+#+end_example

@@ -6210,7 +6210,7 @@ var $author$project$Hello$viewQuote = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('I could not load a random quote for some reason. '),
+						$elm$html$Html$text('I could not load  the hello for some reason. '),
 						A2(
 						$elm$html$Html$button,
 						_List_fromArray(
@@ -6279,7 +6279,7 @@ var $author$project$Hello$view = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Random Quotes')
+						$elm$html$Html$text('Hellos')
 					])),
 				$author$project$Hello$viewQuote(model)
 			]));
