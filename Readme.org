@@ -1,3 +1,22 @@
 * Readme
 
 CORS is driving me mad.
+
+** Documentation
+
+*** Nginx
+https://nginx.org/en/docs/
+
+*** CORS
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+https://portswigger.net/web-security/cors
+
+*** Three projects
+Let's create 3 simple Ruby on Rails projects: primary, secondary and apiary.
+Then let's configure Nginx, so that the are accessed in the following way.
+
+| server    | port | location   |
+|-----------+------+------------|
+| primary   | 5050 | /          |
+| secondary | 5010 | /secondary |
+| apiary    | 5010 | /apiary    |
