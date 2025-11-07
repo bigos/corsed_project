@@ -1,0 +1,3 @@
+* Readme
+
+CORS is driving me mad.
