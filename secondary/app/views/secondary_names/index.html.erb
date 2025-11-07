@@ -14,3 +14,26 @@
 </div>
 
 <%= link_to "New secondary name", new_secondary_name_path %>
+
+
+<hr>
+
+<h1>Elm hello</h1>
+
+<div id="elm">Loading Elm, please wait...</div>
+
+
+<%
+js_filename = 'hello.js'
+js_file = File.join(Rails.root, 'public', js_filename)
+js_mtime =File.mtime(js_file).to_i
+
+flag_data = {nothing: ''}
+%>
+<script src="<%= "/#{js_filename}?#{js_mtime}" %>"></script>
+<script>
+ var app = Elm.Hello.init({ node: document.getElementById('elm'),
+                            flags: <%= raw JSON.generate flag_data %>
+ })
+ // you can use ports and stuff here
+</script>

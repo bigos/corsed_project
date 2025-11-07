@@ -15,11 +15,11 @@ https://portswigger.net/web-security/cors
 Let's create 3 simple Ruby on Rails projects: primary, secondary and apiary.
 Then let's configure Nginx, so that the are accessed in the following way.
 
-| server    | port | location   | note       |
-|-----------+------+------------+------------|
-| primary   |  443 | /          |            |
-| secondary | 5010 | /secondary | irrelevant |
-| apiary    | 5010 | /apiary    |            |
+| server    | port | location   |
+|-----------+------+------------|
+| primary   |  443 | /          |
+| secondary | 5010 | /secondary |
+| apiary    | 5010 | /apiary    |
 
 ** Creating Projects
 *** Creating Rails projects
@@ -91,7 +91,7 @@ Now I have 3 projects to start experimenting
 
 http://localhost:3000
 
-http://localhost:3001 irrelevant
+http://localhost:3001
 
 http://localhost:3002
 
@@ -99,7 +99,7 @@ Trying to access them via HTTPS
 
 https://localhost
 
-https://localhost:5010/secondary irrelevant
+https://localhost:5010/secondary
 
 https://localhost:5010/apiary
 
@@ -182,6 +182,24 @@ Many correct origins may work, but I did not test it with the secondary app
 origins 'https://localhost', 'http://localhost:3000',  'http://localhost:3001'
 #+end_example
 
-** Question
-So is it a matter of finding the attempted origins in the browser and adding the
+**** trying 2 different origins
+
+***** primary
+this on works fine, no console errors
+https://localhost
+
+this one woks fine
+http://localhost:3000
+
+***** secondary
+this one does not work with weird browser console errors
+https://localhost:5010/secondary
+
+this one works fine
+http://localhost:3001
+
+** 2 Questions
+1- So is it a matter of finding the attempted origins in the browser and adding the
 to the list with the correct syntax?
+
+2- Could server configuration error be a problem?
