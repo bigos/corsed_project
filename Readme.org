@@ -127,3 +127,13 @@ sudo nginx -s reload
 
 *** Modifying and running the Rails projects
 Following the guides https://guides.rubyonrails.org/
+
+**** generated 3 scaffolds
+Then, ran the migrations and fixed routes.
+[[file:primary/config/routes.rb::root]]
+[[file:secondary/config/routes.rb::root]]
+[[file:apiary/config/routes.rb::root]]
+
+http://localhost:3000
+http://localhost:3001
+http://localhost:3002
