@@ -175,3 +175,9 @@ When I comment out one of the origins
     origins 'https://localhost' #, 'http://localhost:3000'
 #+end_example
 then http://localhost:3000 no longer works
+
+**** trying many origins
+Many correct origins may work, but I did not test it with the secondary app
+#+begin_example
+origins 'https://localhost', 'http://localhost:3000',  'http://localhost:3001'
+#+end_example
