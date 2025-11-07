@@ -149,6 +149,9 @@ https://medium.com/@guylikericky/how-to-solve-cors-error-on-ruby-on-rails-as-an-
 With not allowed asterisk origins
 file:apiary/config/initializers/cors.rb
 I was able to load the resource.
+#+begin_example
+    origins '*'
+#+end_example
 
 Changing origins to
 #+begin_example
