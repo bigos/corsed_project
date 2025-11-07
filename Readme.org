@@ -142,3 +142,16 @@ At this point I can not load the hello with error on the primary app in the brow
 #+begin_example
 Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://localhost:5010/apiary/api/v1/hello. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 200.
 #+end_example
+
+**** not allowed cheating solution
+https://medium.com/@guylikericky/how-to-solve-cors-error-on-ruby-on-rails-as-an-api-b497c4a32fcc
+
+With not allowed asterisk origins
+file:apiary/config/initializers/cors.rb
+I was able to load the resource.
+
+Changing origins to
+#+begin_example
+    origins 'https://localhost'
+#+end_example
+also works.
