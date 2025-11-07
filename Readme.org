@@ -134,6 +134,16 @@ Then, ran the migrations and fixed routes.
 [[file:secondary/config/routes.rb::root]]
 [[file:apiary/config/routes.rb::root]]
 
+Now I have 3 projects to start experimenting
+
 http://localhost:3000
 http://localhost:3001
 http://localhost:3002
+
+Trying to access them via HTTPS
+
+https://localhost
+https://localhost:5010/secondary
+https://localhost:5010/apiary
+
+We have incorrect server config and problems with routes
