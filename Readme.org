@@ -203,7 +203,6 @@ https://localhost:5010/apiary
 
 http://localhost:3002
 
-
 ** 2 Questions
 1- So is it a matter of finding the attempted origins in the browser and adding the
 to the list with the correct syntax?
