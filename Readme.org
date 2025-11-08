@@ -118,7 +118,7 @@ create a JavaScript that uses an api service on the apiary
 https://localhost:5010/apiary/api/v1/hello
 
 **** API routes and controllers
-file:apiary/config/routes.rb
+file:apiary/config/routes.rb::root
 
 will give the route:
 #+begin_example
