@@ -160,7 +160,7 @@ Changing origins to
 also works.
 
 **** trying two origins
-file:./apiary/config/initializers/cors.rb::1
+file:./apiary/config/initializers/cors.rb
 
 trying http://localhost:3000 or https://localhost -
 
