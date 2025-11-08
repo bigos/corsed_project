@@ -57,7 +57,7 @@ Now, the folder should show the link
 file:/etc/nginx/sites-enabled/
 
 And, this should link to the configuration file
-file:sites-available/corsed_project
+file:./sites-available/corsed_project
 
 **** test configuration
 
@@ -147,7 +147,7 @@ Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remot
 https://medium.com/@guylikericky/how-to-solve-cors-error-on-ruby-on-rails-as-an-api-b497c4a32fcc
 
 With not allowed asterisk origins
-file:apiary/config/initializers/cors.rb
+file:./apiary/config/initializers/cors.rb
 I was able to load the resource.
 #+begin_example
     origins '*'
@@ -160,7 +160,7 @@ Changing origins to
 also works.
 
 **** trying two origins
-file:~apiary/config/initializers/cors.rb::1
+file:./apiary/config/initializers/cors.rb::1
 
 trying http://localhost:3000 or https://localhost -
 
