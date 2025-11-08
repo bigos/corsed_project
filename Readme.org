@@ -83,9 +83,9 @@ and installed the gems
 
 **** generated 3 scaffolds
 Then, ran the migrations and fixed routes.
-[[file:primary/config/routes.rb::root]]
-[[file:secondary/config/routes.rb::root]]
-[[file:apiary/config/routes.rb::root]]
+[[file:primary/config/routes.rb]]
+[[file:secondary/config/routes.rb]]
+[[file:apiary/config/routes.rb]]
 
 Now I have 3 projects to start experimenting
 
@@ -118,7 +118,7 @@ create a JavaScript that uses an api service on the apiary
 https://localhost:5010/apiary/api/v1/hello
 
 **** API routes and controllers
-file:apiary/config/routes.rb::root
+file:apiary/config/routes.rb
 
 will give the route:
 #+begin_example
